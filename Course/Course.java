@@ -8,7 +8,7 @@ public class Course {
     public int semester = 0; //course semester valid values from 1 to 8, only integers
     public boolean lab = false; //course has a lab also
     public float theoryGrade; //theory grade, valid values from 0 to 10 
-    public float labGrade; //lab grade, valid values from 0 to 10 
+    public float laboratorGrade; //lab grade, valid values from 0 to 10 
     public float courseGrade; //final course grade, valid values from 0 to 10, if course has lab 60% theory grade, 40% lab
     float theoryWeight = (float)0.6; //theory 60%
     float labWeight = (float)0.4; //theory 40%
@@ -102,12 +102,12 @@ public class Course {
            do {
             try {
                 System.out.println("> Enter the lab grade: 0-10");
-                labGrade = Float.parseFloat(userInput.nextLine());
-                if (labGrade >= 0 && labGrade <= 10){
+                laboratorGrade = Float.parseFloat(userInput.nextLine());
+                if (laboratorGrade >= 0 && laboratorGrade <= 10){
                 System.out.println("Valid grade !");
                 tryAgain = false;
             }
-            else if (labGrade < 0 || labGrade > 10){
+            else if (laboratorGrade < 0 || laboratorGrade > 10){
                 throw new NumberFormatException("Lab grade is out of range.");
             }
          }
@@ -121,7 +121,7 @@ public class Course {
          }
          } while(tryAgain);
          //calculate class final grade including lab grade
-         courseGrade=theoryWeight*theoryGrade+labWeight*labGrade;
+         courseGrade=theoryWeight*theoryGrade+labWeight*laboratorGrade;
        }
        else
        {
@@ -139,7 +139,7 @@ public class Course {
 			    "\nSemester:.........."+semester+
 			    "\nLab:..............."+lab+ 
 			    "\nTheory grade:......"+theoryGrade+
-			    "\nLab grade:........."+labGrade+
+			    "\nLab grade:........."+laboratorGrade+
 			    "\nCourse grade:......"+courseGrade+
 			    "\n--------------------------------";
 	System.out.println(courseInfo);				
